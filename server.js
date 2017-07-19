@@ -58,7 +58,7 @@ app.get('/api', function apiIndex(req, res) {
     },
       {method: "GET",
        path: "/api/profile",
-        description: "Data about me"
+        description: "Hi my name is Garrick"
     }, // CHANGE ME
       {method: "POST",
        path: "/api/campsites",
