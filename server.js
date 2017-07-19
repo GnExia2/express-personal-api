@@ -37,6 +37,8 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/api/campsites'), function(req, res){
+  res.json(data);
 
 /*
  * JSON API Endpoints
@@ -53,14 +55,12 @@ app.get('/api', function apiIndex(req, res) {
     baseUrl: "https://enigmatic-wave-47277.herokuapp.com", // CHANGE ME
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "GET", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "About me"}, // CHANGE ME
+      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
 });
 
-app.get('/api/campsites'), function(req, res){
-  res.json(data);
 }
 
 /**********
