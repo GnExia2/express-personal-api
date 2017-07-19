@@ -59,6 +59,10 @@ app.get('/api', function apiIndex(req, res) {
   })
 });
 
+app.get('/api/campsites'), function(req, res){
+  res.json(data);
+}
+
 /**********
  * SERVER *
  **********/
