@@ -52,18 +52,9 @@ app.get('/api', function apiIndex(req, res) {
     documentationUrl: "https://github.com/GnExia2/express-personal-api/blob/master/README.md", // CHANGE ME
     baseUrl: "https://enigmatic-wave-47277.herokuapp.com", // CHANGE ME
     endpoints: [
-      {method: "GET",
-       path: "/api",
-       description: "Describes all available endpoints"
-    },
-      {method: "GET",
-       path: "/api/profile",
-        description: "Hi my name is Garrick"
-    }, // CHANGE ME
-      {method: "POST",
-       path: "/api/campsites",
-       description: "E.g. Create a new campsite"
-    } // CHANGE ME
+      {method: "GET", path: "/api", description: "Describes all available endpoints"},
+      {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
+      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
     ]
   })
 });
