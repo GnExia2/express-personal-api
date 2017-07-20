@@ -3,26 +3,31 @@
 
 var db = require('./models');
 
-var profile = {
-  name: "Garrick Ngai",
-  githubUsername: "GnExia2",
-  githubLink: "https://github.com/GnExia2",
-  githubProfileImage: "https://avatars0.githubusercontent.com/u/26442793?v=4&s=400",
-  personalSiteLink: "https://www.facebook.com/garrick.ngai.5",
-  currentCity: "San Francisco",
-  Hobbies:["Hiking", "Photography", "Exotic Sports Cars"]
-}
+var Places_Traveled = [
+  {
+    location: "Hong Kong",
+    Country: "China",
+    Continent: "Asia"
+  },
+  {
+    location: "Colorado",
+    Country: "United States",
+    Continent: "North America"
+  },
+  {
+    location: "Rome",
+    Country: "Italy",
+    Continent: "Europe"
+  }
+]
 
 
 
-
-
-
-db.Travel.create(new_Travel, function(err, Travel){
+db.Places_Traveled.create(Places_Traveled, function(err, Places_Traveled){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new destination", Travel._id)
+  console.log("Created new destination", Places_Traveled._id)
   process.exit(); // we're all done! Exit the program.
 })

@@ -53,17 +53,6 @@ app.get('/api', function apiIndex(req, res) {
     documentationUrl: "https://github.com/GnExia2/express-personal-api/blob/master/README.md", // CHANGE ME
     baseUrl: "https://enigmatic-wave-47277.herokuapp.com", // CHANGE ME
     endpoints: [
-      {
-        profile = {
-          name: "Garrick Ngai",
-          githubUsername: "GnExia2",
-          githubLink: "https://github.com/GnExia2",
-          githubProfileImage: "https://avatars0.githubusercontent.com/u/26442793?v=4&s=400",
-          personalSiteLink: "https://www.facebook.com/garrick.ngai.5",
-          currentCity: "San Francisco",
-          Hobbies:["Hiking", "Photography", "Exotic Sports Cars"]
-        }
-      },
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "About me"},
       {method: "POST", path:"/api/Travel", description: "Places I've been to"}
@@ -71,7 +60,45 @@ app.get('/api', function apiIndex(req, res) {
   })
 });
 
-}
+
+app.get('/api/profile', function myProfile(req, res) {
+  res.json({
+  name: "Garrick Ngai",
+  githubUsername: "GnExia2",
+  githubLink: "https://github.com/GnExia2",
+  githubProfileImage: "https://avatars0.githubusercontent.com/u/26442793?v=4&s=400",
+  personalSiteLink: "https://www.facebook.com/garrick.ngai.5",
+  currentCity: "San Francisco",
+  Pets:[
+      {
+        name: "Fluffy",
+        type: "dog",
+      },
+      {
+        name: "scales",
+        type: "snake",
+      },
+      {
+        name: "whiskers",
+        type: "cat"
+      }
+    ]
+  })
+});
+
+app.get('/api/Places_Traveled/', function (req, res) {
+  Places_Traveled.find({})
+    .populate('ingredients')
+    .exec(function(err, Places_Traveled) {
+      if (err) {
+        res.status(500).send(err);
+        return;
+      }
+      console.log('found all places traveled: ', Places_Traveled);
+      res.json(Places_Traveled);
+    });
+});
+
 
 /**********
  * SERVER *
