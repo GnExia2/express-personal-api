@@ -37,8 +37,7 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api/campsites'), function(req, res){
-  res.json(data);
+
 
 /*
  * JSON API Endpoints
@@ -54,9 +53,20 @@ app.get('/api', function apiIndex(req, res) {
     documentationUrl: "https://github.com/GnExia2/express-personal-api/blob/master/README.md", // CHANGE ME
     baseUrl: "https://enigmatic-wave-47277.herokuapp.com", // CHANGE ME
     endpoints: [
+      {
+        profile = {
+          name: "Garrick Ngai",
+          githubUsername: "GnExia2",
+          githubLink: "https://github.com/GnExia2",
+          githubProfileImage: "https://avatars0.githubusercontent.com/u/26442793?v=4&s=400",
+          personalSiteLink: "https://www.facebook.com/garrick.ngai.5",
+          currentCity: "San Francisco",
+          Hobbies:["Hiking", "Photography", "Exotic Sports Cars"]
+        }
+      },
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
-      {method: "GET", path: "/api/profile", description: "About me"}, // CHANGE ME
-      {method: "POST", path:"/api/Travel", description: "Places I've been to"} // CHANGE ME
+      {method: "GET", path: "/api/profile", description: "About me"},
+      {method: "POST", path:"/api/Travel", description: "Places I've been to"}
     ]
   })
 });

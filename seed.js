@@ -3,8 +3,14 @@
 
 var db = require('./models');
 
-var new_campsite = {
-  description: "Sharp rocks. Middle of nowhere."
+var profile = {
+  name: "Garrick Ngai",
+  githubUsername: "GnExia2",
+  githubLink: "https://github.com/GnExia2",
+  githubProfileImage: "https://avatars0.githubusercontent.com/u/26442793?v=4&s=400",
+  personalSiteLink: "https://www.facebook.com/garrick.ngai.5",
+  currentCity: "San Francisco",
+  Hobbies:["Hiking", "Photography", "Exotic Sports Cars"]
 }
 
 
