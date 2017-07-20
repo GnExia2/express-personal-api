@@ -11,11 +11,12 @@ var new_campsite = {
 
 
 
-db.Campsite.create(new_campsite, function(err, campsite){
+
+db.Travel.create(new_Travel, function(err, Travel){
   if (err){
     return console.log("Error:", err);
   }
 
-  console.log("Created new campsite", campsite._id)
+  console.log("Created new destination", Travel._id)
   process.exit(); // we're all done! Exit the program.
 })
