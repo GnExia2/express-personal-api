@@ -3,7 +3,7 @@
 
 var db = require('./models');
 
-var Places_Traveled = [
+var places = [
   {
     location: "Hong Kong",
     Country: "China",
@@ -22,12 +22,13 @@ var Places_Traveled = [
 ]
 
 
+db.Places.remove({}, function(err, success) {
 
-db.Places_Traveled.create(Places_Traveled, function(err, Places_Traveled){
-  if (err){
-    return console.log("Error:", err);
-  }
-
-  console.log("Created new destination", Places_Traveled._id)
-  process.exit(); // we're all done! Exit the program.
-})
+  db.Places.create(places, function(err, places){
+    console.log("places are : ", places);
+    if (err){
+      return console.log("Error:", err);
+    }
+    process.exit(); // we're all done! Exit the program.
+  });
+});

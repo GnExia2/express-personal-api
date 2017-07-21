@@ -55,7 +55,7 @@ app.get('/api', function apiIndex(req, res) {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "About me"},
-      {method: "POST", path:"/api/Travel", description: "Places I've been to"}
+      {method: "GET", path:"/api/travel", description: "Places I've been to"}
     ]
   })
 });
@@ -86,19 +86,16 @@ app.get('/api/profile', function myProfile(req, res) {
   })
 });
 
-app.get('/api/Places_Traveled/', function (req, res) {
-  Places_Traveled.find({})
-    .populate('ingredients')
-    .exec(function(err, Places_Traveled) {
-      if (err) {
-        res.status(500).send(err);
-        return;
-      }
-      console.log('found all places traveled: ', Places_Traveled);
-      res.json(Places_Traveled);
-    });
-});
 
+
+app.get('/api/places', function (req, res) {
+  db.Places.find({}, function(err, success){
+    console.log("hello I exist")
+    if(err){
+      return console.log("index err!: ", err);
+    } res.json(success);
+  })
+});
 
 /**********
  * SERVER *

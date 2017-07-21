@@ -1,4 +1,4 @@
 var mongoose = require("mongoose");
-    mongoose.connect( process.env.MONGODB_URI || "https://localhost:3000" );
+    mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/personalAPI" );
 
-module.exports.Travel = require("./Places_Traveled.js");
+module.exports.Places = require("./Places.js");
